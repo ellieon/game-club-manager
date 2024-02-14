@@ -4,12 +4,14 @@
   "workspaces": [
     "packages/*"
   ],
-  "devDependencies": {
+  "dependencies": {
     "lerna": "^8.1.2",
     "typescript": "^5.3.3"
   },
   "scripts": {
     "start:dev": "lerna run start:dev",
+    "db:prod": "cd packages/manager-database && npm run db:create",
+    "start:prod": "cd packages/manager-api && npm run start:prod",
     "db:create": "lerna run db:create"
   }
 }

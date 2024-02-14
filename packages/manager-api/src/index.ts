@@ -56,6 +56,6 @@ app.get('/success', async(req: any, res: any) =>  {
 app.get('/ping', (req: any, res: any) => {
   res.send('pong');
 })
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server is running on port 3000');
 });
