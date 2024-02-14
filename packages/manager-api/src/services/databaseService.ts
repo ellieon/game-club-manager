@@ -11,4 +11,11 @@ export class DatabaseService {
         const values = [submission.date, submission.userId, submission.info];
         await this.pool.query(query, values);
     }
+
+    public async getSubmissions(): Promise<GameClubManager.Submission[]> {
+        const query = 'INSERT INTO submissions(submission_date, user_id, submission_info) VALUES($1, $2, $3)';
+        const res = await this.pool.query(`SELECT * FROM submissions`);
+        return res.rows.map(row => JSON.parse(JSON.stringify(row)));
+    }
+
 }
