@@ -6,10 +6,13 @@ import { DatabaseService } from './services/databaseService';
 import { UserService } from './services/userService';
 import { CreateSubmissionController } from './controllers/createSubmissionController';
 import path from 'path';
+import { getRequiredEnvVar } from './util/getRequiredEnvVar';
+import { ListSubmissionsController } from './controllers/listSubmissionsController';
 
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
+const port = getRequiredEnvVar('PORT');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser())
@@ -41,8 +44,19 @@ app.get('/', requireCookie,  async( req: any, res: any) => {
 app.post('/', requireCookie, async (req: any, res: any) => {
   try {
     const createSubmissionController = new CreateSubmissionController();
-    createSubmissionController.createNewSubmission(req);
+    await createSubmissionController.createNewSubmission(req);
     res.redirect('/success');
+  } catch (err) {
+    console.error(err);
+    res.send('Error inserting data');
+  }
+});
+
+app.get('/list', requireCookie, async (req: any, res: any) => {
+  try {
+    const createSubmissionController = new ListSubmissionsController();
+    const submissions = await createSubmissionController.getSubmissions();
+    res.send(submissions);
   } catch (err) {
     console.error(err);
     res.send('Error inserting data');
@@ -56,6 +70,6 @@ app.get('/success', async(req: any, res: any) =>  {
 app.get('/ping', (req: any, res: any) => {
   res.send('pong');
 })
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
