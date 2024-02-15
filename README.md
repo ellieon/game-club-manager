@@ -21,7 +21,6 @@ This is a mono-repo (using lerna) containing the entirety of the game club manag
 * install all dependenices from the root with `npm install`
 * dotenv is used for environment variables, in the `manager-bot` and `manager-database` packages, copy the `.env.example` file to `.env` in the root of each of these, default variables have been provided but variables for the discord and IGDB APIs will need to be filled in both of these files
 * run `start:bot` to start the local development environment, this will run the database migrations and start the actual bot software itself under nodemon.
-* The entry point for the main server is located in `packages/manager-api/src/index`
 
 ### Command Propagation
 Once a bot has been run for the first time, it can take up to an hour for discord to fully propagate what slash commands are available so you can see them. A way around this for development purposes is to set the commands for a specific guild, the following environment variables will allow you to automatically do this on startup  
