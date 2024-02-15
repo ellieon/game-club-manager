@@ -23,10 +23,10 @@ exports.up = function(db) {
       notNull: true,
     },
     date: {
-      type: 'date',
+      type: 'datetime',
       notNull: true,
     },
-    id: {
+    user: {
       type: 'text',
       notNull: true,
     },

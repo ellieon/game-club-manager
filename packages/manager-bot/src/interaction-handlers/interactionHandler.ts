@@ -1,5 +1,5 @@
-import { ModalSubmitInteraction, ModalSubmitInteractionCollectorOptions, Client } from "discord.js";
-import { UserInteraction } from "../event-listeners/interactionCreate";
+import { Client } from "discord.js";
+import { UserInteraction } from "../types/userInteraction";
 
 export interface Handler {
     run: (client: Client, interaction: UserInteraction) => void;

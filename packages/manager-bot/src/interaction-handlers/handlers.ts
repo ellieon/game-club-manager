@@ -1,4 +1,4 @@
 import { Handler } from "./interactionHandler";
-import { ReccomendationFormSubmitHandler } from "./gameReccomendations/reccomendationFormSubmitHandler";
+import { ReccomendationFormSubmitHandler } from "./reccomendationFormSubmitHandler";
 
-export const Handlers: Handler[] = [ ReccomendationFormSubmitHandler ];
+export const Handlers: Handler[] = [ new ReccomendationFormSubmitHandler() ];
