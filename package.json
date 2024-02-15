@@ -9,9 +9,11 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "start:dev": "lerna run start:dev",
-    "db:prod": "cd packages/manager-database && npm run db:create",
-    "start:prod": "cd packages/manager-api && npm run start:prod",
-    "db:create": "lerna run db:create"
+    "start:bot": "lerna run db:create && lerna run start:bot",
+    "start:bot-prod": "lerna run build && lerna run db:create && lerna run bot:prod",
+    "build": "lerna run build",
+    "build:dev": "lerna run build:dev",
+    "db:create": "lerna run db:create",
+    "clean": "lerna run clean"
   }
 }

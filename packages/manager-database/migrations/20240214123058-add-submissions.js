@@ -22,18 +22,26 @@ exports.up = function(db) {
       autoIncrement: true,
       notNull: true,
     },
-    submission_date: {
-      type: 'date',
+    date: {
+      type: 'datetime',
       notNull: true,
     },
-    user_id: {
+    user: {
       type: 'text',
       notNull: true,
     },
-    submission_info: {
+    info: {
       type: 'jsonb',
       notNull: true
     },
+    pending: {
+      type: 'boolean',
+      notNull: true
+    },
+    gameid: {
+      type: 'string',
+      notNull: false
+    }
     });
 
 
