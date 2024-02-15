@@ -67,9 +67,8 @@ app.get('/success', async(req: any, res: any) =>  {
   res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));
 });
 
-app.get('/ping', (req: any, res: any) => {
-  res.send('pong');
-})
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

@@ -1,7 +1,9 @@
 export type Submission = {
-    userId: string
+    id: string
+    pending: boolean
     date: string
     info: SubmissionInfo
+    gameid?: string
 }
 
 export type SubmissionInfo = {

@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:bot": "ts-node src/index.ts",
+    "start:bot": "nodemon --watch 'src/**/*.ts' --ext ts,tsx,js,json --exec 'ts-node' src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bot:prod": "tsc && node ./src/index.js"
+    "bot:prod": "tsc && node ./src/index.js",
+    "build": "tsc",
+    "clean": "tsc --build --clean"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@game-club-manager/manager-api": "^1.0.0",
     "@types/node": "^20.11.17",
+    "igdb-ts": "^1.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }

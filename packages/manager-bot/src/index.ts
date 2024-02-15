@@ -1,6 +1,6 @@
 import { Client, ClientOptions } from "discord.js";
-import ready from "./listeners/ready";
-import interactionCreate from "./listeners/interactionCreate";
+import ready from "./event-listeners/ready";
+import interactionCreate from "./event-listeners/interactionCreate";
 require('dotenv').config();
 
 console.log("Bot is starting...");

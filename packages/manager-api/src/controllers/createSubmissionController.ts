@@ -21,9 +21,10 @@ export class CreateSubmissionController {
         }
 
         await this.databaseService.addSubmission({
-            userId: user.id,
+            id: user.id,
             date: new Date().toISOString(),
             info: submissionInfo,
+            pending: false
         })
     }
 }
